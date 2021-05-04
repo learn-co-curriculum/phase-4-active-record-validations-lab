@@ -1,27 +1,57 @@
-# Lab Name
+# Active Record Validations Lab
 
 ## Learning Goals
 
-- Here's what the student should be able to do by the end
-- Etc
+- Write basic validations using Active Record helpers
+- Write custom validations
 
 ## Introduction
 
-The introduction should discuss the premise, or scenario of the lab. It should
-set the stage for the work the students will be doing.
+This project has starter code for a couple of models, `Author` and `Post`. To
+get set up, run:
 
-## Instructions
+```sh
+bundle install
+rails db:migrate
+```
 
-Instructions should be a list of steps to take when solving the lab.
+Then run `learn test` to run the tests. We'll be focusing solely on the model
+files for this lab, so there's no need to run `rails s` or view anything in the
+browser.
 
-Instructions should be be specific. Students shouldn't have to make assumptions
-about what to do based on the instructions, they should immediately know.
+## Basic Validations
 
-Instructions should be written in order of how to approach the lab. If you need
-to build a class before you can define any methods, the instructions should lead
-the student to build the class first.
+Add validations to these models such that...
+
+1. All authors have a name
+1. No two authors have the same name
+1. Author phone numbers are exactly ten digits
+1. All posts have a title
+1. Post content is at least 250 characters long
+1. Post summary is a maximum of 250 characters
+1. Post category is either `Fiction` or `Non-Fiction`
+   This step requires an `inclusion` validator, which was not outlined in the
+   lesson. You'll need to refer to the [Rails guide][active record validations] to look
+   up how to use it.
+
+## Custom Validations
+
+Finally, add a custom validator to the `Post` model that ensures the title is
+sufficiently clickbait-y. The validator should add a validation error if the
+title does not contain:
+
+- "Won't Believe"
+- "Secret"
+- "Top [number]"
+- "Guess"
+
+Use the [Custom methods][custom methods] style of validator found in the Rails
+documentation.
 
 ## Resources
 
-- [link 1](example.com)
-- [link 2](example.com)
+- [Active Record Validations][active record validations]
+- [Custom Methods][custom methods]
+
+[active record validations]: https://guides.rubyonrails.org/active_record_validations.html
+[custom methods]: https://guides.rubyonrails.org/active_record_validations.html#custom-methods
