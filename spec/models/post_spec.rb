@@ -19,7 +19,7 @@ RSpec.describe Post, type: :model do
     it { is_expected.to validate_inclusion_of(:category).in_array(['Fiction', 'Non-Fiction']) }
   end
   
-  describe 'Custom validation: title is clickbait' do
+  describe 'Custom validations: title is clickbait' do
     it { is_expected.to allow_value("You Won't Believe These True Facts").for(:title) }
     it { is_expected.not_to allow_value('True Facts').for(:title) }
   end
