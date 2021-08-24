@@ -10,9 +10,9 @@
 This project has starter code for a couple of models, `Author` and `Post`. To
 get set up, run:
 
-```sh
-bundle install
-rails db:migrate
+```console
+$ bundle install
+$ rails db:migrate
 ```
 
 Then run `learn test` to run the tests. We'll be focusing solely on the model
