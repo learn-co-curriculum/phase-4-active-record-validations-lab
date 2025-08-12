@@ -2,7 +2,7 @@ class PostValidator < ActiveModel::Validator
   def validate(post)
     return if post.title != 'True Facts'
 
-    post.errors[:title] << 'That title is not allowed!'
+    post.errors.add(:title, 'must be something')
   end
 end
 
