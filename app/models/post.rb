@@ -3,4 +3,13 @@ class Post < ApplicationRecord
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
+  validate :title_is_clickbait 
+
+  def title_is_clickbait 
+    clickbait_phrases = [/Won't Believe/i, /Secret/i, /Top\s\d+/i, /Guess/i]
+    
+    unless clickbait_phrases.any? { |phrase| title =~ phrase }
+      errors.add(:title, "Must be more clickbait-y")
+    end
+  end
 end
